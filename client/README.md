@@ -1,7 +1,7 @@
 
 # csv-uploader server
 
-Replace proxy in package.json to "http://csv-uploader-node-server:8080"
+Replace 'http://15.207.21.22:8080' in helper.js with your API¯ URL/Localhost
 Build Client Image
 `$ docker build -t csv-uploader-react:v1 .`
 
