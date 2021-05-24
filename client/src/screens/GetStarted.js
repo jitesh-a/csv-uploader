@@ -5,6 +5,7 @@ import { Button, Container, Grid, TextField } from '@material-ui/core';
 import axios from 'axios';
 import Alert from '../components/common/Alert';
 import { useHistory } from 'react-router-dom';
+import { getApiBaseUrl } from '../utils/helper';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,8 +62,9 @@ export default function GetStarted() {
       formState.loading = 1;
       setFormState({ ...formState });
 
+      const URL = `${getApiBaseUrl()}/api/uploads`;
       axios
-        .post('/api/uploads',
+        .post(URL,
           data,
           {
             onUploadProgress: ProgressEvent => {

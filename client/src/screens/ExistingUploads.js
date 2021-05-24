@@ -24,7 +24,7 @@ export default function ExistingUploads() {
   const { loading, data, error, refetch } = useApi('/api/uploads');
 
   const renderUploads = useCallback(() => {
-    return data?.length && data.map((upload, index) => <UploadsCard key={upload?.id || index} {...upload} />)
+    return data?.length && data?.map((upload, index) => <UploadsCard key={upload?.id || index} {...upload} />)
   }, [data]);
 
   if (loading) {

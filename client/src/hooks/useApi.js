@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { HTTP_CONSTANTS } from '../utils/constants';
+import { getApiBaseUrl } from '../utils/helper';
 
 export function useApi(url, method = HTTP_CONSTANTS.GET, params, invokeOnLoad = true) {
   const [data, setData] = useState();
@@ -21,7 +22,7 @@ export function useApi(url, method = HTTP_CONSTANTS.GET, params, invokeOnLoad = 
     const URL = id ? `${url}/${id}` : url;
     setLoading(true);
     axios.request({
-      url: URL,
+      url: `${getApiBaseUrl()}${URL}`,
       method,
       params: params,
       data: payload,
